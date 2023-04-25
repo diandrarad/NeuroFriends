@@ -7,11 +7,11 @@ NeuroFriends is a social networking site for neurodiverse individuals to connect
 
 # Technologies
 
-- Flask
-- Python
-- SQLite
+- Flask (Python web framework)
+- Jinja2 (template engine)
+- SQLite (relational database management system)
+- Werkzeug (utility library for WSGI applications)
 - Javascript
-- jQuery
 - HTML
 - CSS
 - Bootstrap 5
