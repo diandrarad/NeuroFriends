@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block main %}
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                        <h6 class="card-subtitle mb-2 text-muted">Posted by <a href="/user/{{ author.id }}" class="text-decoration-none">@{{ author.username }}</a> on {{ post.created_at }}</h6>
+                        <p class="card-text">{{ post.body }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
