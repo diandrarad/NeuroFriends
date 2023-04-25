@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Message Detail
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">{{ detail.subject }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ detail.body }}</p>
+                        <hr>
+                        {% if role == 1 %}
+                            <p class="card-text"><strong>From:</strong> @{{ detail.sender }}</p>
+                        {% else %}
+                            <p class="card-text"><strong>To:</strong> @{{ detail.recipient }}</p>
+                        {% endif %}
+                        <p class="card-text"><strong>Time:</strong> {{ detail.timestamp }}</p>
+                    </div>
+                    {% if role == 1 %}
+                        <div class="card-footer">
+                            <form action="/messaging/reply" method="post">
+                                <input type="hidden" name="message_id" value="{{ detail.id }}">
+                                <input type="submit" class="btn btn-info" value="Reply">
+                            </form>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

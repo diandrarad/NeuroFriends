@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Messaging
+{% endblock %}
+
+{% block main %}
+    {% if messages %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">View</th>
+                    <th scope="col">{% if method == "Recipient" %}To{% else %}From{% endif %}</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for message in messages %}
+                    <tr>
+                        <td>
+                            <form action="/messaging/detail" method="post">
+                                <input type="hidden" name="message_id" value="{{ message.id }}">
+                                <button type="submit" class="btn btn-outline-primary btn-sm"><i class="fas fa-eye"></i></button>
+                            </form>
+                        </td>
+                        <td>@{% if method == "Recipient" %}{{ message.recipient }}{% else %}{{ message.sender }}{% endif %}</td>
+                        <td>{{ message.subject }}</td>
+                        <td>{{ message.timestamp }}</td>
+                        <td>
+                            <a href="#" class="btn btn-outline-secondary btn-sm" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" title="Delete Message"><i class="far fa-trash-alt"></i></a>
+                            <ul class="dropdown-menu p-3 text-center" aria-labelledby="dropdownMenuLink" style="max-width: 100px;">
+                                <li><p>Are you sure you want to delete this message?</p></li>
+                                <li>
+                                    <form action="/messaging/delete/{{ message.id }}" method="post">
+                                        <button type="submit" class="dropdown-item">Yes</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+        </table>  
+    {% else %}
+        <p class="mt-5 pt-5">You haven't had any message yet</p>
+        <a class="btn btn-primary mb-5" href="/messaging/compose"><i class="fas fa-plus"></i> Compose a Message</a>
+    {% endif %}
+{% endblock %}

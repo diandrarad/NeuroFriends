@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %}
+    Reply
+{% endblock %}
+{% block main %}
+    <div class="container">
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-5">
+                <h2>Reply Message</h2>
+                <hr>
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <strong>To:</strong> {{ detail.sender }}
+                    </div>
+                    <div class="card-body">
+                        <form action="/messaging/compose" method="post">
+                            <input type="hidden" name="sender" value="{{ detail.recipient }}">
+                            <input type="hidden" name="recipient" value="{{ detail.sender }}"><br>
+                            <div class="form-group row">
+                                <label for="subject" class="col-sm-3 col-form-label">Subject:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" value="{{ detail.subject }}">
+                                </div>
+                            </div><br>
+                            <div class="form-group">
+                                <textarea required name="body" rows="6" id="body" class="form-control" placeholder="Write a reply"></textarea>
+                            </div><br>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
