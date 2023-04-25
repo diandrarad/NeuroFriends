@@ -18,4 +18,9 @@ NeuroFriends is a social networking site for neurodiverse individuals to connect
 
 # Installation
 
-- Clone / fork this repository.
+To run the NeuroFriends application on your local machine, follow these steps:
+
+- Clone the repository to your local machine
+- Set up a virtual environment in the project directory
+- Install the required dependencies by running pip install -r requirements.txt
+- To run the project, all you have to do is go "flask run" in your terminal window.
