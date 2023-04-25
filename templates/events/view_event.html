@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ event.title }}
+{% endblock %}
+
+{% block main %}
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ event.title }}</h2>
+                        <h6 class="card-subtitle mb-2 text-muted">Posted by <a href="/user/{{ author.id }}" class="text-decoration-none">{% if is_author == 1 %}You{% else %}@{{ author.username }}{% endif %}</a></h6>
+                        <h6 class="card-subtitle mb-2 text-muted">On {{ event.date }} at {{ event.time }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">At {{ event.location }}</h6>
+                        <p class="card-text">{{ event.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if is_author == 1 %}
+        <a href="{{ url_for('edit_event', id=event.id) }}" class="btn btn-primary mb-3"><i class="fas fa-edit"></i> Edit Event</a>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit Event
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <h2>Create Event</h2>
+            <hr>
+            <div class="card">
+                <div class="card-body">
+                    <form action="{{ url_for('edit_event', id=event.id) }}" method="post">
+                        <div class="form-group row">
+                            <label for="recipient" class="col-sm-5 col-form-label">Title:</label>
+                            <div class="col-sm-5">
+                                <input required type="text" id="title" name="title" class="form-control" placeholder="Title" value="{{ event.title }}">
+                            </div>
+                        </div><br>
+                        <div class="form-group row">
+                            <label for="recipient" class="col-sm-5 col-form-label">Date</label>
+                            <div class="col-sm-5">
+                                <input required type="date" id="date" name="date" class="form-control" placeholder="Date" value="{{ event.date }}">
+                            </div>
+                        </div><br>
+                        <div class="form-group row">
+                            <label for="recipient" class="col-sm-5 col-form-label">Time</label>
+                            <div class="col-sm-5">
+                                <input required type="time" id="time" name="time" class="form-control" placeholder="Time" value="{{ event.time }}">
+                            </div>
+                        </div><br>
+                        <div class="form-group row">
+                            <label for="recipient" class="col-sm-5 col-form-label">Location <i class="fas fa-map-marker-alt"></i></label>
+                            <div class="col-sm-5">
+                                <input required type="text" id="location" name="location" class="form-control" placeholder="Location" value="{{ event.location }}">
+                            </div>
+                        </div><br>
+                        <div class="form-group">
+                            <textarea required name="description" rows="3" class="form-control" placeholder="Event's Description" required>{{ event.description }}</textarea>
+                        </div><br>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
