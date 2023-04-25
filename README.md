@@ -2,7 +2,8 @@
 
 ### [Video Demo](https://youtu.be/5Mp0ZaFU1gs)
 
-### Description: NeuroFriends is a social networking site for neurodiverse individuals to connect and communicate with each other.
+# Overview
+NeuroFriends is a social networking site for neurodiverse individuals to connect and communicate with each other. The goal is to provide a safe and supportive space for individuals who are on the autism spectrum, have ADHD, or other neurological differences.
 
 # Technologies
 
