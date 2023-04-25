@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    User Profile
+{% endblock %}
+
+{% block main %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Your Profile</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-center mb-3">
+                            <div class="col-md-4">
+                                <img src="{{ profile_picture }}" alt="Profile Picture" class="rounded-circle img-fluid">
+                            </div>
+                        </div><br>
+                        <form method="POST" enctype="multipart/form-data">
+                            <div class="form-group row">
+                                <label for="profile_pic" class="col-sm-5 col-form-label"><strong>Profile Picture</strong></label>
+                                <div class="col-sm-6">
+                                    <input type="file" id="profile_pic" name="profile_pic" class="form-control">
+                                </div>
+                            </div><br>
+                            <div class="form-group row">
+                                <label for="first_name" class="col-sm-5 col-form-label"><strong>First Name</strong></label>
+                                <div class="col-sm-5">
+                                    <input  type="text" id="first_name" name="first_name" class="form-control" placeholder="First Name" value="{{ profile.first_name }}">
+                                </div>
+                            </div><br>
+                            <div class="form-group row">
+                                <label for="last_name" class="col-sm-5 col-form-label"><strong>Last Name</strong></label>
+                                <div class="col-sm-5">
+                                    <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Last Name" value="{{ profile.last_name }}">
+                                </div>
+                            </div><br>
+                            <div class="form-group row">
+                                <label for="pronouns" class="col-sm-5 col-form-label"><strong>Pronouns</strong></label>
+                                <div class="col-sm-5">
+                                    <input type="text" id="pronouns" name="pronouns" class="form-control" placeholder="Pronouns" value="{{ profile.pronouns }}">
+                                </div>
+                            </div><br>
+                            <div class="form-group row">
+                                <label for="age" class="col-sm-5 col-form-label"><strong>Age</strong></label>
+                                <div class="col-sm-5">
+                                    <input  type="number" min="0" id="age" name="age" class="form-control" placeholder="Age" value="{{ profile.age }}">
+                                </div>
+                            </div><br>
+                            <div class="form-group row">
+                                <label for="bio" class="col-sm-5 col-form-label"><strong>Bio</strong></label>
+                                <div class="col-sm-5">
+                                    <textarea  id="bio" name="bio" class="form-control" placeholder="Bio">{{ profile.bio }}</textarea>
+                                </div>
+                            </div><br>
+                            <div class="form-group">
+                                <label><strong>Interests</strong></label><br><br>
+                                {% for interest in interests %}
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" name="interests[]" id="interest_{{ interest.id }}" class="form-check-input" value="{{ interest.id }}" {% if interest.interest_id %}checked{% endif %}>
+                                        <label for="interest_{{ interest.id }}" class="form-check-label">{{ interest.name }}</label>
+                                    </div>
+                                {% endfor %}
+                            </div><br><br>
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Update Profile</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    People
+{% endblock %}
+
+{% block main %}
+    <h1 class="mb-4">People</h1>
+
+    <button class="btn btn-outline-secondary btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilter" aria-controls="offcanvasFilter"><i class="fas fa-filter"></i> Filter</button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-backdrop="false" id="offcanvasFilter" aria-labelledby="offcanvasFilterLabel">
+    <div class="offcanvas-header">
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <h5 class="offcanvas-title mb-5" id="offcanvasFilterLabel">Filter by interests</h5>
+        <form action="/people" method="post">
+            <div class="row mb-5 mx-3">
+                {% for interest in interests %}
+                    <div class="col-md-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="interest" id="interest-{{ interest['id'] }}" value="{{ interest['name'] }}">
+                            <label class="form-check-label" for="interest-{{ interest['id'] }}">{{ interest['name'] }}</label>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        <button type="submit" class="btn btn-outline-secondary btn-sm">Filter</button>
+        </form>
+    </div>
+    </div>
+
+
+    <hr>
+
+    <div class="row">
+        {% for user in users %}
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    {% if user['profile_picture'] is not none %}
+                        <img src="{{ url_for('static', filename='profile_pics/' + user['profile_picture']) }}" alt="{{ user['username'] }}" class="card-img-top">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">@{{ user['username'] }}</h5>
+                        <p class="card-text mb-0"><strong>{{ user['first_name'] }} {{ user['last_name'] }}</strong></p>
+                        <p class="card-text">{{ user['pronouns'] }}</p>
+                        <p class="card-text">{{ user['bio'] | truncate_filter(100) }}</p>
+                        <p class="card-text"><strong>Interests:</strong> {{ user['interests']|join(', ') }}</p>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="d-flex justify-content-between">
+                                    <a href="/user/{{ user['id'] }}" class="btn btn-outline-primary btn-sm" title="See Profile"><i class="fas fa-id-card"></i></a>
+                                    <a href="{{ url_for('compose', recipient_id=user['id']) }}" class="btn btn-outline-info btn-sm" title="Send Message"><i class="fas fa-envelope-square"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row py-5 my-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="d-flex justify-content-center">
+            <form action="/login" method="post" class="mx-auto text-center">
+                <label class="form-label mt-4">Log In to NeuroFriends</label>
+                <div class="form-floating mb-3">
+                <input class="form-control" id="username" name="username" placeholder="Username" type="text" style="width: 200px;">
+                <label class="form-label" for="username">Username</label>
+                </div>
+                <div class="form-floating mb-3">
+                <input class="form-control" id="password" name="password" placeholder="Password" type="password" style="width: 200px;">
+                <label class="form-label" for="password">Password</label>
+                </div>
+                <button class="btn btn-primary" type="submit">Log In</button>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div> 
+  
+{% endblock %}

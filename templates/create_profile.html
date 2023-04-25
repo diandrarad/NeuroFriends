@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create Profile
+{% endblock %}
+
+{% block main %}
+    <h1>Create Your Profile</h1>
+    <hr>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Your Profile</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-center mb-3">
+                            <div class="col-md-4">
+                                <img src="{{ profile_picture }}" alt="Profile Picture" class="rounded-circle img-fluid">
+                            </div>
+                        </div><br>
+                        <form method="POST" enctype="multipart/form-data">
+                            <div class="form-group row">
+                                <label for="profile_pic" class="col-sm-5 col-form-label"><strong>Profile Picture</strong></label>
+                                <div class="col-sm-6">
+                                    <input type="file" id="profile_pic" name="profile_pic" class="form-control">
+                                </div>
+                            </div><br>
+                            <div class="form-group row">
+                                <label for="first_name" class="col-sm-5 col-form-label"><strong>First Name</strong></label>
+                                <div class="col-sm-5">
+                                    <input type="text" name="first_name" id="first_name" class="form-control" required>
+                                </div>
+                            </div><br>
+                            <div class="form-group row">
+                                <label for="last_name" class="col-sm-5 col-form-label"><strong>Last Name</strong></label>
+                                <div class="col-sm-5">
+                                    <input type="text" name="last_name" id="last_name" class="form-control" required>
+                                </div>
+                            </div><br>
+                            <div class="form-group row">
+                                <label for="gender" class="col-sm-5 col-form-label"><strong>Gender</strong></label>
+                                <div class="col-sm-5">
+                                    <select name="gender" id="gender" class="form-control" required>
+                                        <option value="" selected>-- Gender--</option>
+                                        <option value="Man">Man</option>
+                                        <option value="Woman">Woman</option>
+                                        <option value="Non-Binary">NB</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div><br>
+                            <div class="form-group row">
+                                <label for="age" class="col-sm-5 col-form-label"><strong>Age</strong></label>
+                                <div class="col-sm-5">
+                                    <input type="number" name="age" id="age" class="form-control" required>
+                                </div>
+                            </div><br>
+                            <div class="form-group row">
+                                <label for="bio" class="col-sm-5 col-form-label"><strong>Bio</strong></label>
+                                <div class="col-sm-5">
+                                    <textarea name="bio" id="bio" class="form-control"></textarea>
+                                </div>
+                            </div><br>
+                            <div class="form-group">
+                                <label><strong>Interests</strong></label><br><br>
+                                {% for interest in interests %}
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" name="interests[]" id="interest_{{ interest.id }}" class="form-check-input" value="{{ interest.id }}">
+                                        <label for="interest_{{ interest.id }}" class="form-check-label">{{ interest.name }}</label>
+                                    </div>
+                                {% endfor %}
+                            </div><br><br>
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Profile</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

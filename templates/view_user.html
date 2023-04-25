@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    {{ user.username }}'s Profile
+{% endblock %}
+
+
+{% block main %}
+    <div class="card my-5">
+        <div class="row no-gutters align-items-center">
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename='profile_pics/' + user.profile_picture) }}" alt="{{ user.username }} profile picture" class="card-img rounded-circle align-items-center" style="max-width: 150px;">
+                    <h5 class="card-title mt-2">{{ user.first_name }} {{ user.last_name }}</h5>
+                    <p class="card-text">{{ user.pronouns }} · {{ user.age }}</p>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h6 class="card-text mt-3">@{{ user.username }}</h6>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Interests</th>
+                                <td>
+                                    {% for interest in interests %}
+                                        {{ interest.name }}{% if not loop.last %}, {% endif %}
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Bio</th>
+                                <td>{{ user.bio }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="{{ url_for('compose', recipient_id=user.id) }}" class="btn btn-primary btn-sm mt-3"><i class="fas fa-envelope-square"></i> Send Message</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
