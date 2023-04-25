@@ -44,4 +44,5 @@ Once the web application is running, you can use the provided functionality by n
 - /forum: View and create forum posts, as well as edit or delete your own posts
 - /events: View events, as well as create or edit events you are hosting
 - /resources: View and create resources, as well as edit or delete your own resources
+
 Note: Some functionality may require you to be logged in or have appropriate permissions.
