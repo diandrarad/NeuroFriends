@@ -16,6 +16,17 @@ NeuroFriends is a social networking site for neurodiverse individuals to connect
 - CSS
 - Bootstrap 5
 
+# Basic Functionality
+
+NeuroFriends provides the following functionality:
+
+- User registration and login
+- User profiles with customizable information
+- Private messaging system between users
+- Forum for discussions and support
+- Event creation and RSVP system
+- Resource sharing and management
+
 # Installation
 
 To run the NeuroFriends application on your local machine, follow these steps:
@@ -24,3 +35,13 @@ To run the NeuroFriends application on your local machine, follow these steps:
 - Set up a virtual environment in the project directory
 - Install the required dependencies by running pip install -r requirements.txt
 - To run the project, all you have to do is go "flask run" in your terminal window.
+
+Once the web application is running, you can use the provided functionality by navigating to the appropriate route:
+
+- /user: View your own profile or update your profile information
+- /user/<int:user_id>: View another user's profile
+- /messaging: View your private messages and send new messages
+- /forum: View and create forum posts, as well as edit or delete your own posts
+- /events: View events, as well as create or edit events you are hosting
+- /resources: View and create resources, as well as edit or delete your own resources
+Note: Some functionality may require you to be logged in or have appropriate permissions.
