@@ -34,7 +34,7 @@ NeuroFriends provides the following functionality:
 - User profiles with customizable information
 - Private messaging system between users
 - Forum for discussions and support
-- Event creation and RSVP system
+- Event creation
 - Resource sharing and management
 
 # Installation
