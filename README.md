@@ -1,5 +1,7 @@
 ![NeuroFriends logo](./static/logo.png)
 
+![Screenshot](screenshot.webp)
+
 ### [Video Demo](https://youtu.be/5Mp0ZaFU1gs)
 
 # Overview
