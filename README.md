@@ -9,13 +9,13 @@ NeuroFriends is a social networking site for neurodiverse individuals to connect
 
 NeuroFriends is a social networking site designed specifically for neurodiverse individuals to connect and communicate with each other in a safe and supportive environment. The platform offers a range of features to facilitate this, including user registration and login, as well as customizable user profiles.
 
-Users have the option to add their own information to their profiles and can choose what information to share with others. Additionally, NeuroFriends provides a private messaging system between users, which allows for secure and direct communication.
+Users have the option to add their information to their profiles and can choose what information to share with others. Additionally, NeuroFriends provides a private messaging system between users, which allows for secure and direct communication.
 
-The forum feature is an important aspect of the platform, offering a space for discussions and support. Users can create forum posts, read posts from other users on a range of topics relevant to neurodiverse individuals.
+The forum feature is an important aspect of the platform, offering a space for discussions and support. Users can create forum posts, and read posts from other users on a range of topics relevant to neurodiverse individuals.
 
 Another key feature of NeuroFriends is the event creation system, which allows users to create and manage events.
 
-Finally, the platform includes a resource sharing and management system, which allows users to share resources related to neurodiversity. Users can create, view, and edit resources, as well as manage their own contributions.
+Finally, the platform includes a resource-sharing and management system, which allows users to share resources related to neurodiversity. Users can create, view, and edit resources, as well as manage their contributions.
 
 # Technologies
 
