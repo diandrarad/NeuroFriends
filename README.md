@@ -1,6 +1,6 @@
 ![NeuroFriends logo](./static/logo.png)
 
-![Screenshot](screenshot.webp)
+![Screenshot](demo.gif)
 
 ### [Video Demo](https://youtu.be/5Mp0ZaFU1gs)
 
